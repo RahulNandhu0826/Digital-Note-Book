@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Register </title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+  body {
+    background:url('https://wallpapercave.com/wp/5KLTq1z.jpg') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+  z-index: -2;
+    
+    
+    
+    
+  }
+  .form1{
+    background: linear-gradient(to right, rgb(171, 171, 223), #bcdef6, #94dfb0, #b6cfe0, #a3c6c9);
+    border: 1px solid black;
+    padding: 1%;
+    border-radius:10px;
+    box-shadow:5px 10px 15px white;
+    width:50%;
+  }
+</style>
+
+<body>
+  <div class="container form1" style="margin-top:2%; ">
+  <h1> <u>  Registration </u> </h1>
+    {{key}}
+
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-6 w-5">
+
+          <div class="form-group">
+
+            First Name:<input type="text" name="f_name" id="" class="form-control" placeholder="Enter Your First Name" required>
+          </div>
+          <div class="form-group">
+            Second Name:<input type="text" name="s_name" id="" class="form-control"
+              placeholder="Enter Your Second Name" required>
+          </div>
+          <div class="form-group">
+            Date Of Birth: <input type="date" name="dob" class="form-control" required>
+          </div>
+          <div class="form-group">
+            Email: <input type="Email" name="mail" class="form-control" placeholder="Enter Your Email" required>
+          </div>
+        </div>
+          <div class="col-6 mt-2">
+            <div class="form-group">
+
+              Username: <input type="text" name="u_name" class="form-control"placeholder="Enter Your User Name" required>
+
+            </div>
+            <div class="form-group">
+              Gender:
+              <input type="radio" name="gender" value="female" id="" required>Female
+              <input type="radio" name="gender" value="male" id="" required>Male
+            </div>
+
+
+           
+            Account Type:
+            <input type="radio" name="acc_type" value="Private" id="" required>Private
+            <input type="radio" name="acc_type" value="Public" id="" required>Public
+            <div class="form-group">
+              Password: <input type="password" name="passe" class="form-control" placeholder="Enter Your Password" required>
+            </div>
+            <div class="form-group">
+              Confirm Password: <input type="password" name="con_pass" id="" class="form-control"placeholder="Enter Your Confirm Password" required>
+            </div>
+          </div>
+        </div>
+        
+       <div class="col-12  text-center">
+        <input type="submit" value="Register " class="btn btn-success btn-lg " style="box-shadow: 2px 2px 4px black;">
+       </div>
+
+    </form>
+
+    Already have an account? <a href="log">Login</a><i class="fa-regular fa-right-to-bracket"></i>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

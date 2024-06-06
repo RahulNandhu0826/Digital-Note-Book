@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  
+  {% block Rahul%}
+  
+<head>
+  <title>PAYMENT</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
+<style>
+  body {
+    background: url("https://images.pexels.com/photos/50987/money-card-business-credit-card-50987.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#"><span>DNB</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link" href="user_home">Home</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link " href="purshase">Purchase</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="">Payment</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <section style="width:70%; margin-left:15%; margin-top: 0%;">
+    <div class="row d-flex justify-content-center ">
+      <div class="col-md-10 col-lg-8 col-xl-5">
+        <div class="card rounded-2">
+          <div class="card-body ">
+
+            <div class="d-flex flex-row align-items-center">
+
+              <div class="flex-fill mx-3">
+
+
+                <div class="row">
+                  <div class="col-12 text-center ">
+                    <h4><img class="img-fluid" src="https://img.icons8.com/color/48/000000/mastercard-logo.png" /><img
+                        class="img-fluid" src="https://img.icons8.com/color/48/000000/visa.png" /></h4>
+                    <b>Payment</b>
+                  </div>
+                  <div class="col-12">
+                    <div class=" form-group">
+                      <label for="">Name</label>
+                      <P class="form-control">{{key4.brooks.user_register.first_name}}
+                        {{key4.note_books.user_register.first_name}}{{key4.assignment.user_register.first_name}} </P>
+                    </div>
+                    <div class=" form-group">
+                      <label for="">Card Number</label>
+                      <P class="form-control">
+                        <script language="JavaScript">
+                          var str = "{{key4.brooks.Account_num}} {{key4.note_books.Account_num}}{{key4.assignment.Account_num}}"; //VERY BAD: Credit Card # *unencrypted* in source!
+                          var n = str.replace(/.(?=.{4})/g, 'x');
+                          document.write(n);
+                        </script>
+                      </p>
+                    </div>
+                    <div class=" form-group">
+                      <label for="">My card Name</label>
+                      <p class="form-control">
+                        {{key5.user_register.first_name}}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-5">
+                        <div class=" form-group">
+                          <label for="">Card Number</label>
+                          <p class="form-control" value="">
+                            <script language="JavaScript">
+                              var str = "{{key5.Account_num}}";
+                              var n = str.replace(/.(?=.{4})/g, 'x');
+                              document.write(n);
+                            </script>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class=" form-group">
+                          <label for="">Expire</label>
+                          <input type="date" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-3">
+                        <div class=" form-group">
+                          <label for="">Rate</label>
+                          <input type="text" name="buy_rate" id="" class="form-control" value="{{key4.rate}}">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                 <form action="buy" method="post">
+                    {% csrf_token %}
+                    <div class="col-12">
+                      <div class=" form-group">
+                        <input type="text" name="ur_id" id="" value="{{key4.brooks.id}} {{key4.note_books.id}}{{key4.assignment.id}} "hidden>
+                        <input type="text" name="namess" id="" class="form-control"
+                          value="{{key4.brooks.usersname}} {{key4.note_books.usersname}}{{key4.assignment.usersname}} "
+                          hidden>
+                      </div>
+                      <div class=" form-group">
+                        
+                        <input type="text" name="" id="" class="form-control"
+                          value="{{key4.brooks.Account_num}} {{key4.note_books.Account_num}}{{key4.assignment.Account_num}} "
+                          hidden>
+                      </div>
+                      <div class=" form-group">
+
+                        <input type="text" name="urnamess" id="" class="form-control"
+                          value="{{key5.usersname}}"hidden >
+                      </div>
+
+                    </div>
+                    <div class="col-12">
+                      <div class="row">
+                        <div class="col-5">
+                          <div class=" form-group">
+
+                            <input type="text" name="" id="" class="form-control" value="{{key5.Account_num}}" hidden>
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div class=" form-group">
+
+                            <input type="date" name="" id="" class="form-control" value="" hidden>
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class=" form-group">
+
+                            <input type="text" name="buy_rate" id="" class="form-control" value="{{key4.rate}}" hidden>
+                          </div>
+                          <input type="text" name="actrat" value="{{key4.rate}}" hidden>
+                          <input type="text" name="compl" value="completed" hidden>
+                          <input type="text" name="ssll_noo" value="{{key4.id}}" hidden>
+                          <input type="text" name="things" value="{{key4.note_thingss}}{{key4.book_thingss}}{{key4.assign_thingss}}" hidden>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="col-12">
+                      <input type="submit" class="btn btn-success btn-lg btn-block" value="Buy">
+                    </div>
+
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+  </section>
+<br>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+{%  endblock %}
+
+</html>

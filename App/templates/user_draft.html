@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Text Edit</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+  body {
+    background: url(https://images.pexels.com/photos/1329571/pexels-photo-1329571.jpeg?auto=compress&cs=tinysrgb&w=1600);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+
+  }
+
+  table {
+    background: rgba(3, 3, 3, .5);
+
+  }
+
+  .table1 {
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
+
+  }
+
+  .dc {
+    height: 40px;
+    width: 150px;
+    overflow: hidden;
+  }
+
+  /* .dc:hover{
+    height:40px;
+    overflow: auto;
+  } */
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#"><span>DNB</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link" href="user_home">Home</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link " href="user_profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="">Draft</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-12">
+        <h1 class="text-light" style="text-shadow: 2px 2px 2px  black;">NOTE SUBMIT</h1>
+        <div class="table1">
+          <table class="table text-center text-light">
+            <tr>
+              <th>SUBJECT</th>
+              <th class="dc">NOTES</th>
+              <th colspan="2">OPTIONS</th>
+            </tr>
+            {% for i in keys %}
+            <tr>
+              <td>{{i.subs}}</td>
+              <td class="dc">{{i.bookss|slice:10}}</td>
+              <td>
+                <a href="{% url 'updraft' i.id %}" class="btn btn-primary ">Edit</a>
+              </td>
+              <td>
+                <a href="{% url 'del' i.id %}" class="btn btn-danger ">Delete Draft</a>
+              </td>
+
+            </tr>
+
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

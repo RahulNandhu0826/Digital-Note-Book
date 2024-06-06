@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>User Profile</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+  body {
+    background: url("https://images.pexels.com/photos/249360/pexels-photo-249360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+
+  }
+
+  span1 {
+    color: rgb(247, 140, 0);
+  }
+
+  .table1 {
+    border: 2px solid black;
+    background: rgba(255, 240, 240, 1);
+    border-radius: 25px;
+
+  }
+
+  .draft {
+    border: 2px solid black;
+    background: white;
+    border-radius: 25px;
+    padding: 10px
+  }
+
+  h1 {
+    text-shadow: 2px 2px 2px black;
+  }
+
+  tr {
+    font-weight: bolder;
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#"><span>DNB</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link" href="user_home">Home</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link active" href="#">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="view_payment">View Payments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="user_update">Profile Update/Add Bank Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="user_draftss">Draft</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Recive_send_request">Requests</a>
+        </li>
+
+
+
+
+
+
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <a href="logouts" class="btn btn-primary">Log Out</a>
+      </form>
+
+    </div>
+  </nav>
+  <div class="container mt-2">
+    <div class="row">
+      <div class="col-5 table1">
+        <h1 class="text-light">Profile</h1>
+        <table>
+
+          <tr>
+            <th>User Name:</th>
+            <td>{{key.usersname}}</td>
+          </tr>
+          <tr>
+            <th>First Name:</th>
+            <td>{{key.user_register.first_name}}</td>
+          </tr>
+          <tr>
+            <th>Second Name:</th>
+            <td>{{key.user_register.last_name}}</td>
+          </tr>
+          <tr>
+            <th>Date of Birth:</th>
+            <td>{{key.DOB}}</td>
+          </tr>
+          <tr>
+            <th>Gender:</th>
+            <td>{{key.Gender}}</td>
+          </tr>
+          <tr>
+            <th>Email:</th>
+            <td>{{key.user_register.email}}</td>
+          </tr>
+          <tr>
+            <th>Account Type:</th>
+            <td>{{key.Account}}</td>
+          </tr>
+          <tr>
+            <th> Bank account number :</th>
+            <td>{{key.Account_num}}</td>
+          </tr>
+
+
+
+        </table>
+
+      </div>
+
+      <div class="col-2"></div>
+
+      <div class="col-5 draft ">
+
+        <h5>Create your own Notes- <span1>{{key.user_register.first_name}}</span></h5>
+
+        <form action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group ">
+            <input type="text" class="form-control p-1" name="sub" placeholder="Enter  Subject" required>
+          </div>
+
+
+          <div class="form-group ">
+            <input type="file" class="form-control p-1" name="pic" required>
+            <p>*Add JPEG files only</p>
+          </div>
+
+          <div class="form-group">
+
+            <textarea id="" cols="30" rows="3" name=text2 class="form-control" required
+              placeholder="Enter Description "></textarea>
+          </div>
+          <div class="form-group ">
+            <input type="number" class="form-control p-1" name="note_rate" placeholder="Enter Rate">
+            <input type="text" class="form-control p-1" name="note_things" value="Note" hidden>
+            <input type="text" name="Acc" value="{{key.Account}}" hidden>
+
+          </div>
+          <input type="submit" name="Draft" id="" class="btn btn-danger" value="Save Draft">
+          <input type="submit" name="Save" id="" class="btn btn-danger" value="Save">
+          {{key1}}
+        </form>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
